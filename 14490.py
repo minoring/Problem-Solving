@@ -7,4 +7,4 @@ def gcd(a, b):
 
 n, m = map(int, input().split(":"))
 g = gcd(n, m)
-print(str(n // g) + ":" + str(m // g))
+print("%d:%d" % (n / g, m / g))
