@@ -9,37 +9,29 @@ struct ListNode {
 class Solution {
    public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        ListNode* res_list = new ListNode((l1->val + l2->val) % 10);
-        int carry = (l1->val + l2->val) / 10;
-        ListNode* rear = res_list;
-        l1 = l1->next;
-        l2 = l2->next;
-        while (l1 != NULL && l2 != NULL) {
-            rear->next = new ListNode((carry + l1->val + l2->val) % 10);
-            carry = (carry + l1->val + l2->val) / 10;
-            l1 = l1->next;
-            l2 = l2->next;
+        ListNode* p = l1;
+        ListNode* q = l2;
+        ListNode* dummy = new ListNode(0);
+        int carry = 0;
+        ListNode* rear = dummy;
+
+        while (p != NULL || q != NULL) {
+            int p_val = (p != NULL) ? p->val : 0;
+            int q_val = (q != NULL) ? q->val : 0;
+            rear->next = new ListNode((carry + p_val + q_val) % 10);
+            carry = (carry + p_val + q_val) / 10;
+
+            if (p != NULL)
+                p = p->next;
+            if (q != NULL)
+                q = q->next;
             rear = rear->next;
         }
 
-        while (l1 != NULL) {
-            rear->next = new ListNode((carry + l1->val) % 10);
-            carry = (carry + l1->val) / 10;
-            l1 = l1->next;
-            rear = rear->next;
-        }
-
-        while (l2 != NULL) {
-            rear->next = new ListNode((carry + l2->val) % 10);
-            carry = (carry + l2->val) / 10;
-            l2 = l2->next;
-            rear = rear->next;
-        }
-
-        if (carry == 1) {
+        if (carry > 0) {
             rear->next = new ListNode((1));
         }
 
-        return res_list;
+        return dummy->next;
     }
 };
