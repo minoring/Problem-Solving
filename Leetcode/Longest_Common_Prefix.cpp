@@ -8,16 +8,14 @@ class Solution {
     string longestCommonPrefix(vector<string>& strs) {
         if (strs.size() == 0) return "";
 
-        string prefix = strs[0];
-        for (const string& str : strs) {
-            int  i = 0;
-            for (; i < min(prefix.length(), str.length()); ++i) {
-                if (prefix[i] != str[i]) {
-                    break;
+        for (int i = 0; i < strs[0].length(); ++i) {
+            char c = strs[0][i];
+            for (int j = 1; j < strs.size(); ++j) {
+                if (i == strs[j].length() || strs[j][i] != c) {
+                    return strs[0].substr(0, i);
                 }
             }
-            prefix = prefix.substr(0, i);
         }
-        return prefix;
+        return strs[0];
     }
 };
