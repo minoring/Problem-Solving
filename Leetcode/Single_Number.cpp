@@ -15,7 +15,7 @@ public:
 
 /*
 https://leetcode.com/problems/single-number/
-Approact: Bit Manipulation
+Approach: Bit Manipulation
 a⊕0 = a If we take xor of zero and some bit, it will return that bit
 a⊕a = 0 If we take XOR of two same bits, it will return 0
 a⊕b⊕a = (a⊕a)⊕b = 0⊕b = b associative rule.
