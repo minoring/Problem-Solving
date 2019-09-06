@@ -5,6 +5,11 @@ amounts up to i. On ech iteration i of the algorithm F(i) is
 computed as min_{j=0...n-1}F(i-C_j)+1
 F(3) = min{F(3-c_1), F(3-c_2), F(3-c_3)} + 1
      = min{F(2), F(1), F(0)}
+
+- Time Complexity: O(S * n). 
+On each etep the algorithm find the next F(i)
+in n iterations, where 1 <= i <= S. Therefore in total the iterations are S * n.
+- Space Complexity: O(S). We use extra space for the memorization table.
 */
 #include <vector>
 
