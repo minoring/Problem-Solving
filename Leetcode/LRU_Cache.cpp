@@ -2,6 +2,7 @@
 Approach: Hash, Doublly Linked List
 Note: 문제의 속성을 파악하고 자료구조를 정하자
 Constant find -> Hash Tablej
+list iterator의 장점은 안바뀜.
 Costant remove -> Doubly Linked List
 Time Complexity: O(1) each operation.
 Space Complexity: O(n) store cache memory.
