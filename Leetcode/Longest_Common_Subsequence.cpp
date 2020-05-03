@@ -1,3 +1,8 @@
+/*
+lcs("abc", "edc") = 1 + lcs("ab", "ed")
+
+lcs("abd", "abe") = max(lcs("ab", "abe"), lcs("abd", "ab"))
+*/
 class Solution {
 public:
     int longestCommonSubsequence(string text1, string text2) {
