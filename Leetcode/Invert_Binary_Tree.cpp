@@ -26,6 +26,20 @@ class Solution {
     }
 };
 
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        if (root == nullptr) {
+            return nullptr;
+        }
+        TreeNode* invertedLeft = invertTree(root->left);
+        TreeNode* invertedRight = invertTree(root->right);
+        root->right = invertedLeft;
+        root->left = invertedRight;
+        return root;
+    }
+};
+
 // Approach: Iterative
 class Solution {
    public:
@@ -62,6 +76,6 @@ O(n), where n is the number of nodes in the tree. We cannot do better than
 that, since at the very least we have to visit each node to invert it.
 
 Because of recursion, O(h) function calls will be placed on the stack in the
-worst case, where h is the height of the tree. Because h ∈ O(n), the 
+worst case, where h is the height of the tree. Because h ∈ O(n), the
 space complexity is O(N).
 */
