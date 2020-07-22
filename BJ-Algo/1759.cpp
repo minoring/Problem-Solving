@@ -16,11 +16,10 @@ void dfs(const vector<char>& codes, int i, int num_vowel, int num_consonant,
 
   if (codes[i] == 'a' || codes[i] == 'e' || codes[i] == 'i' ||
       codes[i] == 'o' || codes[i] == 'u') {
-    num_vowel++;
+    dfs(codes, i + 1, num_vowel + 1, num_consonant, comb + codes[i], l);
   } else {
-    num_consonant++;
+    dfs(codes, i + 1, num_vowel, num_consonant + 1, comb + codes[i], l);
   }
-  dfs(codes, i + 1, num_vowel, num_consonant, comb + codes[i], l);
   dfs(codes, i + 1, num_vowel, num_consonant, comb, l);
 }
 
